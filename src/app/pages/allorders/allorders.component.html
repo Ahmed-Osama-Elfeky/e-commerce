@@ -1,0 +1,51 @@
+@if (AllOrders!=null) {
+    <section class="bg-slate-200 rounded-md shadow-md p-4 my-4 mx-0 md:mx-auto w-2/3 relative ">
+
+        <div class="flex flex-wrap justify-between ">
+        <h1 class=" font-black text-3xl my-3 text-emerald-400 "> All Orders </h1>
+        </div>
+
+    
+        <div class="container w-[90%] mx-auto ">
+         
+           
+          @for (order of AllOrders.products; track order.product._id) {
+            <div class="flex flex-wrap items-center border-b-4 border-gray-400 py-2">
+    
+                <div class="w-full sm:w-1/5">
+    
+                    <div class="p-img object-contain mx-2">
+                        <img [src]="order.product.imageCover" [alt]="order.product.title">
+                    </div>
+    
+                </div>
+                <div class="w-full sm:w-1/2">
+                    <div class="p-desc">
+                        <h1 class="font-black text-3xl my-3 ">{{order.product.title}}</h1>
+                        
+                       
+    
+                    </div>
+                </div>
+    
+    
+        
+            </div>
+          }
+            
+         
+        
+
+         
+        </div>
+    
+    </section>
+    
+}
+
+ 
+@else {
+    <div class="flex flex-wrap items-center justify-center h-screen">
+        <h1 class="font-black text-3xl my-3 text-emerald-400">Not Found Orders</h1>
+    </div>
+}

@@ -1,0 +1,112 @@
+<!-- Main Slider -->
+ <section class="p-4 my-5">
+    <div class="container w-[90%] mx-auto">
+        <div class="flex flex-wrap">
+            <div class="w-full sm:full md:w-1/2 lg:w-3/4 ">
+                <owl-carousel-o [options]="mainSliderOptions">
+                    <ng-template carouselSlide>
+                        <img src="./images/img1.avif" class="h-80 " alt="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img src="./images/img2.avif" class="h-80" alt="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img src="./images/img3.avif" class="h-80" alt="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img src="./images/img4.avif" class="h-80" alt="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img src="./images/img5.avif" class="h-80" alt="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img src="./images/img6.avif" class="h-80" alt="">
+                    </ng-template>
+                    <ng-template carouselSlide>
+                        <img src="./images/img7.avif" class="h-80" alt="">
+                    </ng-template>
+
+                  </owl-carousel-o>
+
+            </div>
+            <div class="w-full sm:full md:w-1/2 lg:w-1/4 ">
+                <img src="./images/grocery-banner.png" class="h-40" alt="">
+                <img src="./images/grocery-banner-2.jpeg" class="h-40" alt="">
+
+
+            </div>
+        </div>
+    </div>
+ </section>
+
+
+
+@if(productsData != null && categoryData != null){
+    <!-- Category Slider -->
+<section class="p-4 my-5">
+    <div class="container w-[90%] mx-auto">
+        <h1 class="main-title ">Shop Popular Category</h1>
+        <owl-carousel-o [options]="categoriesSliderOptions">
+
+
+            @for (category of categoryData; track category._id) {
+               <ng-template carouselSlide>
+                   <img [src]="category.image" class=" w-full h-[250px] object-contain" [alt]="category.name">
+                 </ng-template>
+            }
+
+
+
+         </owl-carousel-o>
+    </div>
+</section>
+
+
+
+
+<!-- recommended Products -->
+<section class=" p-4 my-5">
+    <input [(ngModel)]="searchValue" type="text" placeholder="Search by name...." class="p-4 mx-auto block rounded w-[50%]">
+    <div class="container w-[90%] mx-auto ">
+        <h1 class="main-title">Recommended Products</h1>
+        <div class="grid gap-4 grid-cols-1 sm:grid-cols-3 lg:grid-cols-5">
+
+
+            @for(product of productsData | search: searchValue ; track product._id){
+
+            <div class="product p-4 cursor-pointer flex flex-col justify-between " >
+                
+                <div class="" [routerLink]="['/product-details',product._id]">
+                    <div class="">
+                        <img [src]="product.imageCover" [alt]="product.title">
+                    </div>
+                    <div class="mt-4">
+                        <h2 class="text-main">{{product.category.name}}</h2>
+                        <h1 class="font-black">{{product.title.split(' ').slice(0,2).join(' ')}}</h1>
+                    </div>
+                    <div class="mt-4 flex flex-wrap justify-between">
+                        <h3>{{product.price}}</h3>
+                        <span><i class=" rating-color  fa-solid fa-star"></i>{{product.ratingsAverage}}</span>
+
+                    </div>
+                </div>
+
+                <div class="mt-4 ">
+                    <button  (click)="addToCart(product._id)" class="btn-main  mx-auto   ">+Add to cart</button>
+                </div>
+                
+                @if (!addedToWishlist) {<span  (click)="addToWhishlist(product._id)" class="mt-4  ms-auto text-2xl block"><i class="fa-regular fa-heart "></i></span>}
+                @if (addedToWishlist) {<span  (click)="removeFromWishlist(product._id)" class="mt-4  ms-auto text-2xl  block"><i class="fa-regular fa-heart text-red-600 "></i></span>}
+                
+
+            </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</section>
+
+}

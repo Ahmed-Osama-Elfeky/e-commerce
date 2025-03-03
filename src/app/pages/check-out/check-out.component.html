@@ -1,0 +1,66 @@
+<section class="bg-slate-200 rounded-md shadow-md p-4 my-4 mx-0 md:mx-auto w-2/3 relative ">
+
+
+    <form [formGroup]="detailsForm" (ngSubmit)="detailsSubmit()">
+
+        <div class="my-4">
+            @let detailsControl = detailsForm.get('email') ;
+              <label for="details" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Details <span class="text-red-700">*</span></label>
+              <input
+              [class]="
+              {
+  
+                'my-valid':!detailsControl?.errors && (detailsControl?.touched || detailsControl?.dirty),
+                'my-invalid':detailsControl?.errors && (detailsControl?.touched || detailsControl?.dirty)
+  
+              }" formControlName="details" type="text" id="details" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              
+          
+          </div>
+
+          <div class="my-4">
+            @let phoneControl = detailsForm.get('email') ;
+              <label for="details" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone <span class="text-red-700">*</span></label>
+              <input
+              [class]="
+              {
+  
+                'my-valid':!phoneControl?.errors && (phoneControl?.touched || phoneControl?.dirty),
+                'my-invalid':phoneControl?.errors && (phoneControl?.touched || phoneControl?.dirty)
+  
+              }" formControlName="phone" type="number" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              
+          
+          </div>
+
+
+          <div class="my-4">
+            @let cityControl = detailsForm.get('email') ;
+              <label for="details" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">City <span class="text-red-700">*</span></label>
+              <input
+              [class]="
+              {
+  
+                'my-valid':!cityControl?.errors && (cityControl?.touched || cityControl?.dirty),
+                'my-invalid':cityControl?.errors && (cityControl?.touched || cityControl?.dirty)
+  
+              }" formControlName="city" type="text" id="city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              
+          
+          </div>
+
+          <div class="">
+
+        <button class="my-btn">Payment <span><i class="fa-brands fa-cc-visa"></i></span></button>
+        
+      </div>
+      
+      
+      
+    </form>
+    <button (click)="Cash()" class="my-btn my-7">Cash On Delivery <span><i class="fa-solid fa-money-bill"></i></span></button>
+
+
+
+
+</section>

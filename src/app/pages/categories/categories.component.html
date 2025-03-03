@@ -1,0 +1,35 @@
+<section class="p-4 my-5">
+
+  <div class="container w-[90%] mx-auto ">
+
+    <div class="grid gap-4 grid-cols-1 sm:grid-cols-3 lg:grid-cols-3">
+
+
+        @for(category of categoryData  ; track category._id){
+
+        <div class="product p-4 cursor-pointer flex flex-col justify-between " >
+
+            <div >
+                <div class="" (click)="showSpecificCategory(category._id)" >
+                    <img class="w-full h-[250px] object-contain " [src]="category.image" [alt]="category.name">
+                </div>
+                <div class="mt-4">
+
+                    <h1 class=" text-center text-main font-extrabold text-2xl">{{category.name}}</h1>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        }
+
+    </div>
+
+</div>
+
+
+</section>
+
+
