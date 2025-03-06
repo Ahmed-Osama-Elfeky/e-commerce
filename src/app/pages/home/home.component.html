@@ -74,8 +74,8 @@
 
             @for(product of productsData | search: searchValue ; track product._id){
 
-            <div class="product p-4 cursor-pointer flex flex-col justify-between " >
-                
+            <div class="product p-4 cursor-pointer flex flex-col justify-between items-center " >
+
                 <div class="" [routerLink]="['/product-details',product._id]">
                     <div class="">
                         <img [src]="product.imageCover" [alt]="product.title">
@@ -94,10 +94,10 @@
                 <div class="mt-4 ">
                     <button  (click)="addToCart(product._id)" class="btn-main  mx-auto   ">+Add to cart</button>
                 </div>
-                
+
                 @if (!addedToWishlist) {<span  (click)="addToWhishlist(product._id)" class="mt-4  ms-auto text-2xl block"><i class="fa-regular fa-heart "></i></span>}
                 @if (addedToWishlist) {<span  (click)="removeFromWishlist(product._id)" class="mt-4  ms-auto text-2xl  block"><i class="fa-regular fa-heart text-red-600 "></i></span>}
-                
+
 
             </div>
 
