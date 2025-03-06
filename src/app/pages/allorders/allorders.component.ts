@@ -14,11 +14,13 @@ export class AllordersComponent implements OnInit {
 
 
 private readonly _PaymentService=inject(PaymentService);
-  private readonly _ActivatedRoute=inject(ActivatedRoute);
+
   orderId!:string
- 
+
 
 AllOrders:IOrder| null= null;
+All!:IOrder[]
+
 SpecificOrders:IOrder| null= null;
 
 ngOnInit(): void {
@@ -29,11 +31,11 @@ ngOnInit(): void {
           // console.log(res.data[0].cartItems[0].product);
           console.log(res.data);
           this.AllOrders=res.data;
-          
+
       },
       error:(err)=>{
         console.log(err);
-        
+
 
       }
 
@@ -52,7 +54,7 @@ ngOnInit(): void {
 //   next:(res)=>{
 //     console.log(res);
 //     this.SpecificOrders=res;
-    
+
 //   },
 // })
 

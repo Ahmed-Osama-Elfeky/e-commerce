@@ -1,11 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/authentication/auth.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-verify-code',
-  imports: [ReactiveFormsModule,RouterLink],
+  imports: [ReactiveFormsModule],
   templateUrl: './verify-code.component.html',
   styleUrl: './verify-code.component.scss'
 })

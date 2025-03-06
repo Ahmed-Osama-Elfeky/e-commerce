@@ -1,6 +1,6 @@
 import { CartService } from './../../../core/services/cart/cart.service';
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+
 import { WhishlistService } from '../../../core/services/whishlist/whishlist.service';
 import { ProductService } from '../../../core/services/products/product.service';
 import { ICart } from '../../../core/interfaces/cart/icart';
@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-whishlist',
-  imports: [RouterLink,RouterLinkActive],
+  imports: [],
   templateUrl: './whishlist.component.html',
   styleUrl: './whishlist.component.scss'
 })
